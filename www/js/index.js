@@ -20,7 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        alert("test");
     },
     // Bind Event Listeners
     //
@@ -28,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('batterystatus', this.onBatteryStatus, false)
     },
     // deviceready Event Handler
     //
@@ -35,6 +35,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+    },
+    // function that alerts the battry level
+    onBatteryStatus: function(status) {
+      alert("Your battry is at " + status.level + "%");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
