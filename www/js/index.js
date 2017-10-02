@@ -45,5 +45,11 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        window.addEventListener("batterystatus", onBatteryStatus, false);
+
+        function onBatteryStatus(status) {
+          alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+        }
     }
 };
